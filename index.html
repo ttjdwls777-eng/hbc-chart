@@ -10,7 +10,7 @@
       margin: 0;
       background-color: #05070b;
       color: #f5f5f5;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: Arial, sans-serif;
     }
     #chart {
       width: 100%;
@@ -31,6 +31,7 @@
 <div id="error"></div>
 
 <script>
+
 const container = document.getElementById("chart");
 const chart = LightweightCharts.createChart(container, {
   width: container.clientWidth,
@@ -55,7 +56,6 @@ const candleSeries = chart.addCandlestickSeries({
 async function loadData() {
   const errorBox = document.getElementById("error");
   try {
-    // 같은 도메인 Netlify Function 호출
     const res = await fetch("/.netlify/functions/hbc");
     const real = await res.json();
 
@@ -88,6 +88,7 @@ window.addEventListener("resize", () => {
     height: container.clientHeight,
   });
 });
+
 </script>
 
 </body>
